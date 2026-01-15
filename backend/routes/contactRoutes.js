@@ -1,31 +1,68 @@
-const express = require('express');
-const router = express.Router();
-const contactController = require('../controllers/contactController');
-const { validateContact } = require('../middleware/validation');
-const rateLimit = require('express-rate-limit');
+// const express = require('express');
+// const router = express.Router();
+// const contactController = require('../controllers/contactController');
+// const { validateContact } = require('../middleware/validation');
+// const rateLimit = require('express-rate-limit');
 
-// Rate limiting for contact form (5 requests per 15 minutes)
+// // Rate limiting for contact form (5 requests per 15 minutes)
+// const contactLimiter = rateLimit({
+//     windowMs: 15 * 60 * 1000, // 15 minutes
+//     max: 5,
+//     message: {
+//         success: false,
+//         message: 'Too many contact attempts. Please try again after 15 minutes.'
+//     },
+//     standardHeaders: true,
+//     legacyHeaders: false
+// });
+
+// // Public routes
+// router.post('/submit', contactLimiter, validateContact, contactController.submitContact);
+// router.get('/test-email', contactController.testEmailService);
+
+
+
+// module.exports = router;
+
+
+const express = require("express");
+const router = express.Router();
+const contactController = require("../controllers/contactController");
+const { validateContact } = require("../middleware/validation");
+const rateLimit = require("express-rate-limit");
+
+// Rate limit
 const contactLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 5,
-    message: {
-        success: false,
-        message: 'Too many contact attempts. Please try again after 15 minutes.'
-    },
-    standardHeaders: true,
-    legacyHeaders: false
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: {
+    success: false,
+    message: "Too many contact attempts. Try again later."
+  },
+  standardHeaders: true,
+  legacyHeaders: false
 });
 
-// Public routes
-router.post('/submit', contactLimiter, validateContact, contactController.submitContact);
-router.get('/test-email', contactController.testEmailService);
+// ===== PUBLIC =====
+router.post(
+  "/submit",
+  contactLimiter,
+  validateContact,
+  contactController.submitContact
+);
 
-// Admin routes (uncomment and add authentication middleware as needed)
-/*
-const { auth, admin } = require('../middleware/auth');
+// ===== ADMIN =====
+router.get(
+  "/admin",
+  contactController.getAllContacts
+);
 
-router.get('/', auth, admin, contactController.getAllContacts);
-router.patch('/:id/read', auth, admin, contactController.markAsRead);
-*/
+router.patch(
+  "/admin/:id/read",
+  contactController.markAsRead
+);
+
+// ===== TEST =====
+router.get("/test-email", contactController.testEmailService);
 
 module.exports = router;
