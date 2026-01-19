@@ -142,7 +142,7 @@ const AboutSection = () => {
           <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-[var(--text-color)] to-[var(--accent)] bg-clip-text text-transparent">
             About Me
           </h2>
-          <p>Technical Team Leader and Full-Stack Developer with 3+ years of experience building scalable web applications using
+          <p className="text-justify">Technical Team Leader and Full-Stack Developer with 3+ years of experience building scalable web applications using
 React.js and Node.js. Proven track record of leading cross-functional teams to deliver high-impact projects with 95% client
 satisfaction. Expert in performance optimization (achieved 80% reduction in load times), state management, and modern
 JavaScript frameworks. Passionate about mentoring developers and implementing best practices that drive measurable
