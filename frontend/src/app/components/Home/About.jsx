@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { FaUsers, FaLaptopCode, FaClock, FaCode, FaRocket, FaStar, FaHeart } from "react-icons/fa";
+import { FaUsers, FaLaptopCode, FaClock, FaCode, FaRocket, FaStar, FaHeart, FaDownload } from "react-icons/fa";
 
 const AboutSection = () => {
   const [animatedIcons, setAnimatedIcons] = useState([]);
@@ -165,7 +165,20 @@ business outcomes.</p>
               <p className="text-sm opacity-70">{stat.description}</p>
             </div>
           ))}
+
+
         </div>
+         <div className="flex w justify-center items-center m-auto mt-0">
+
+                      <a
+                        href="/siddhantresume.pdf"
+                        download
+                        className="px-8 py-4 border-2 border-[var(--accent)] text-[var(--accent)] rounded-lg font-semibold hover:bg-[var(--accent)] hover:text-white hover:bg-opacity-10 transition-all duration-300 flex items-center gap-2"
+                      >
+                        Download Resume
+                        <FaDownload className="text-sm" />
+                      </a>
+                    </div>
       </div>
 
       {/* Animations */}

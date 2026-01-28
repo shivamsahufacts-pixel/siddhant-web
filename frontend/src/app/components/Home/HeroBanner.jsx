@@ -153,9 +153,9 @@ const HeroBanner = () => {
             </a>
 
             <a
-              href="/resume.pdf"
+              href="/siddhantresume.pdf"
               download
-              className="px-8 py-4 border-2 border-[var(--accent)] text-[var(--accent)] rounded-lg font-semibold hover:bg-[var(--accent)] hover:bg-opacity-10 transition-all duration-300 flex items-center gap-2"
+              className="px-8 py-4 border-2 border-[var(--accent)] text-[var(--accent)] rounded-lg font-semibold hover:bg-[var(--accent)] hover:text-white hover:bg-opacity-10 transition-all duration-300 flex items-center gap-2"
             >
               Download Resume
               <FaDownload className="text-sm" />
