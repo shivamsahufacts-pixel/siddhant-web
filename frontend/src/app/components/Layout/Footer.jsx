@@ -126,7 +126,7 @@ const Footer = () => {
             </li>
             <li>
               <span className="font-medium">Address:</span>{" "}
-              Indore, Madhya Pradesh, India
+              Bhopal, Madhya Pradesh, India
             </li>
           </ul>
         </div>

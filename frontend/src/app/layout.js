@@ -2,8 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import ReduxProvider from "../../providers/ReduxProvider";
-import Header from "./components/Layout/Header";
-import Footer from "./components/Layout/Footer";
+// import Header from "./components/Layout/Header";
+// import Footer from "./components/Layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,11 +15,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-/* ✅ FAVICON + SEO METADATA */
+/* ✅ SEO + FAVICON METADATA */
 export const metadata = {
   title: "Siddhant Dev",
   description: "Siddhant Dev | Web Developer & Programmer",
-
   icons: {
     icon: "/favicon-512x512-removebg-preview.png",
     shortcut: "/favicon-512x512-removebg-preview.png",
@@ -31,6 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReduxProvider>

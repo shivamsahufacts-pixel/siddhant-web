@@ -17,6 +17,7 @@ const authRoutes = require("./routes/authRoute");
 const uploadRoutes = require("./routes/uploadRoute");
 const contactRoutes = require("./routes/contactRoutes");
 const serviceRoutes = require("./routes/service.routes");
+// const adminRoutes = require("./routes/admin.routes");
 
 // ======================================================
 // 🔌 DATABASE
@@ -106,6 +107,7 @@ app.use("/api/upload", uploadRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/services", serviceRoutes);
 
+// app.use("/api/admin",adminRoutes);
 // ======================================================
 // ❤️ HEALTH CHECK (RENDER SAFE)
 // ======================================================
